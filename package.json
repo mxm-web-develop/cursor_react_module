@@ -1,0 +1,43 @@
+{
+  "name": "cursor_react_module",
+  "private": true,
+  "author": "hanfeng_Zhang",
+  "version": "1.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --mode production",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "fs-extra": "^11.2.0",
+    "postcss": "^8.4.47",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.14"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@types/node": "^22.7.7",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "@types/rollup-plugin-generate-package-json": "^3.2.9",
+    "@vitejs/plugin-react": "^4.3.2",
+    "eslint": "^9.11.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "globals": "^15.9.0",
+    "rollup-plugin-generate-package-json": "^3.2.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.7.0",
+    "vite": "^5.4.8",
+    "vite-plugin-commonjs": "^0.10.3",
+    "vite-plugin-dts": "^4.2.4",
+    "vite-plugin-package-version": "^1.1.0",
+    "vite-plugin-svgr": "^4.2.0"
+  }
+}

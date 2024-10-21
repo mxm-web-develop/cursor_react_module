@@ -1,0 +1,28 @@
+{
+  "scraper": {
+    "Radix_ui": {
+      "entry_element": ".rt-Section",
+      "output": "../src/docs/Radix_ui",
+      "pages": [
+        {
+          "url": "https://www.radix-ui.com/themes/docs/overview/getting-started",
+          "name": "getting-started",
+          "entry": ".rt-Box",
+          "module": "intro"
+        },
+        "https://www.radix-ui.com/themes/docs/overview/styling",
+        "https://www.radix-ui.com/themes/docs/overview/layout",
+        "https://www.radix-ui.com/themes/docs/theme/overview",
+        "https://www.radix-ui.com/themes/docs/theme/color",
+        "https://www.radix-ui.com/themes/docs/theme/dark-mode",
+        "https://www.radix-ui.com/themes/docs/theme/typography",
+        "https://www.radix-ui.com/themes/docs/theme/spacing",
+        "https://www.radix-ui.com/themes/docs/theme/breakpoints",
+        "https://www.radix-ui.com/themes/docs/theme/radius",
+        "https://www.radix-ui.com/themes/docs/theme/shadows",
+        "https://www.radix-ui.com/themes/docs/theme/cursors",
+        "https://www.radix-ui.com/themes/docs/components/box"
+      ]
+    }
+  }
+}
