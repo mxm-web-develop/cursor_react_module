@@ -2,7 +2,7 @@
   "name": "cursor_react_module",
   "private": true,
   "author": "hanfeng_Zhang",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "type": "module",
   "scripts": {
     "dev": "vite",
