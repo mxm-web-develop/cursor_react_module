@@ -35,6 +35,7 @@ export default ({ mode }: { mode: string }) => {
         baseContents: {
           name: env.VITE_PUBLISH_NAME,
           main: "index.js",
+          license:"MIT",
           // @ts-expect-error 这里是因为样式文件可能没有类型定义
           style: "assets/style.css",
           types: "index.d.ts",
@@ -44,6 +45,7 @@ export default ({ mode }: { mode: string }) => {
           type: "module",
           scripts: {
             test: "yarn link",
+            publish:"npm publish --access public"
           },
           dependencies: {},
           exports: {

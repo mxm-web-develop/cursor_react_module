@@ -2,13 +2,13 @@
   "name": "cursor_react_module",
   "private": true,
   "author": "hanfeng_Zhang",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build --mode production",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "patch": "npm version patch",
+    "publish:lib": "cd dist && npm publish --access public"
   },
   "dependencies": {
     "autoprefixer": "^10.4.20",
