@@ -9,7 +9,7 @@ export default function MxMweb() {
         <button
           className={`px-4 py-2 rounded bg-blue-500 text-white}`}
         >
-          浅色主题
+          浅色按钮
         </button>
         <button
           className={`px-4 py-2 rounded 'bg-blue-500 text-white}`}

@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --mode production",
-    "patch": "npm version patch",
+    "patch": "./patch.sh",
     "publish:lib": "cd dist && npm publish --access public"
   },
   "dependencies": {
