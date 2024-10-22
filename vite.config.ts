@@ -76,7 +76,7 @@ export default ({ mode }: { mode: string }) => {
     build: {
       outDir: "dist",
       lib: {
-        entry: path.resolve(__dirname, "src/application/index.tsx"),
+        entry: path.resolve(__dirname, "src/application/lib_enter.ts"),
         formats: ["es"],
         fileName: (format) => `index.${format === "es" ? "js" : "umd.js"}`,
       },
