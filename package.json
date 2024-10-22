@@ -9,6 +9,16 @@
     "build": "vite build --mode production",
     "publish:lib": "cd dist && npm publish --access public"
   },
+  "include": [
+    "src/application/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/main.tsx",
+    "src/Preview.tsx",
+    "type.d.ts",
+    "vite-env.d.ts"
+  ],
   "dependencies": {
     "autoprefixer": "^10.4.20",
     "fs-extra": "^11.2.0",
