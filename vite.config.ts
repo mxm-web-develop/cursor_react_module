@@ -9,6 +9,7 @@ import dts from "vite-plugin-dts";
 import version from "vite-plugin-package-version";
 import pkg from "./package.json";
 import terser from "@rollup/plugin-terser";
+import copy from "rollup-plugin-copy";
 // import tsconfigPaths from 'vite-tsconfig-paths';
 // const Api_url = "";
 // Start of Selection
@@ -35,7 +36,7 @@ export default ({ mode }: { mode: string }) => {
         baseContents: {
           name: env.VITE_PUBLISH_NAME,
           main: "index.js",
-          license:"MIT",
+          license: "MIT",
           // @ts-expect-error 这里是因为样式文件可能没有类型定义
           style: "assets/style.css",
           types: "index.d.ts",
@@ -45,7 +46,7 @@ export default ({ mode }: { mode: string }) => {
           type: "module",
           scripts: {
             test: "yarn link",
-            publish:"npm publish --access public"
+            publish: "npm publish --access public",
           },
           dependencies: {},
           exports: {
@@ -53,6 +54,12 @@ export default ({ mode }: { mode: string }) => {
             "./assets/style.css": "./assets/style.css",
           },
         },
+      }),
+      copy({
+        targets: [
+          { src: "NPMREADME.md", dest: "dist" }, // 将 README.md 复制到 dist 目录
+        ],
+        hook: "writeBundle", // 在打包完成后执行
       }),
     ],
     resolve: {
