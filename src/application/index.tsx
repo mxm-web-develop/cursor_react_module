@@ -1,5 +1,10 @@
 import './style.css'
-export default function MxMweb() {
+const MxMweb = (props: {
+  children?: React.ReactNode
+  className?: string
+  good?: boolean
+}) => {
+  console.log(props)
   return (
     <div className={`flex flex-col justify-center items-center w-screen h-screen
      transition-colors duration-300 bg-white text-black}`}>
@@ -20,3 +25,5 @@ export default function MxMweb() {
     </div>
   )
 }
+
+export default MxMweb

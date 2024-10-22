@@ -51,7 +51,7 @@ export default ({ mode }: { mode: string }) => {
           dependencies: {},
           exports: {
             ".": "./index.js",
-            "./assets/style.css": "./assets/style.css",
+            "./styles.css": "./assets/lib_enter.css",
           },
         },
       }),
@@ -76,7 +76,7 @@ export default ({ mode }: { mode: string }) => {
     build: {
       outDir: "dist",
       lib: {
-        entry: path.resolve(__dirname, "src/application/lib_enter.ts"),
+        entry: path.resolve(__dirname, "src/application/lib_enter.tsx"),
         formats: ["es"],
         fileName: (format) => `index.${format === "es" ? "js" : "umd.js"}`,
       },
