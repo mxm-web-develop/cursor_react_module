@@ -57,7 +57,7 @@ export default ({ mode }: { mode: string }) => {
       }),
       copy({
         targets: [
-          { src: "NPMREADME.md", dest: "dist" }, // 将 README.md 复制到 dist 目录
+          { src: "NPMREADME.md", dest: "dist", rename: "README.md" }, // 将 README.md 复制到 dist 目录
         ],
         hook: "writeBundle", // 在打包完成后执行
       }),
