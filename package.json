@@ -1,5 +1,5 @@
 {
-  "name": "cursor_react_module",
+  "name": "@mxmweb/somelib",
   "private": true,
   "author": "hanfeng_Zhang",
   "version": "1.0.12",
@@ -21,11 +21,14 @@
   ],
   "dependencies": {
     "autoprefixer": "^10.4.20",
+    "axios": "^1.7.7",
+    "axios-mock-adapter": "^2.1.0",
     "fs-extra": "^11.2.0",
     "postcss": "^8.4.47",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.14",
+    "zustand": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
@@ -48,6 +51,7 @@
     "vite-plugin-commonjs": "^0.10.3",
     "vite-plugin-dts": "^4.2.4",
     "vite-plugin-package-version": "^1.1.0",
-    "vite-plugin-svgr": "^4.2.0"
+    "vite-plugin-svgr": "^4.2.0",
+    "vitest": "^2.1.3"
   }
 }
