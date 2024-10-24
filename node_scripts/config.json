@@ -63,6 +63,32 @@
         },
         "https://www.radix-ui.com/themes/docs/components/box"
       ]
+    },
+    "Zustand": {
+      "entry_element": ".post-container",
+      "output": "../src/docs/Zustand",
+      "pages": [
+        "https://zustand.docs.pmnd.rs/getting-started/introduction",
+        "https://zustand.docs.pmnd.rs/guides/updating-state",
+        "https://zustand.docs.pmnd.rs/guides/immutable-state-and-merging",
+        "https://zustand.docs.pmnd.rs/guides/flux-inspired-practice",
+        "https://zustand.docs.pmnd.rs/guides/auto-generating-selectors",
+        "https://zustand.docs.pmnd.rs/guides/practice-with-no-store-actions",
+        "https://zustand.docs.pmnd.rs/guides/typescript",
+        "https://zustand.docs.pmnd.rs/guides/testing",
+        "https://zustand.docs.pmnd.rs/guides/event-handler-in-pre-react-18",
+        "https://zustand.docs.pmnd.rs/guides/maps-and-sets-usage",
+        "https://zustand.docs.pmnd.rs/guides/connect-to-state-with-url-hash",
+        "https://zustand.docs.pmnd.rs/guides/how-to-reset-state",
+        "https://zustand.docs.pmnd.rs/guides/initialize-state-with-props",
+        "https://zustand.docs.pmnd.rs/guides/slices-pattern",
+        "https://zustand.docs.pmnd.rs/guides/prevent-rerenders-with-use-shallow",
+        "https://zustand.docs.pmnd.rs/guides/ssr-and-hydration",
+        "https://zustand.docs.pmnd.rs/guides/nextjs",
+        "https://zustand.docs.pmnd.rs/integrations/immer-middleware",
+        "https://zustand.docs.pmnd.rs/integrations/third-party-libraries",
+        "https://zustand.docs.pmnd.rs/integrations/persisting-store-data#onrehydratestorage"
+      ]
     }
   }
 }
