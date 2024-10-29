@@ -2,7 +2,7 @@
   "name": "@mxmweb/somelib",
   "private": true,
   "author": "hanfeng_Zhang",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "type": "module",
   "scripts": {
     "dev": "vite",
