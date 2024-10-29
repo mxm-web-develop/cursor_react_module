@@ -8,33 +8,46 @@ import generatePackageJson from 'rollup-plugin-generate-package-json';
 import dts from 'vite-plugin-dts';
 import version from 'vite-plugin-package-version';
 import pkg from './package.json';
-import terser from '@rollup/plugin-terser';
 import copy from 'rollup-plugin-copy';
-// import tsconfigPaths from 'vite-tsconfig-paths';
-// const Api_url = "";
-// Start of Selection
-// Start of Selection
-// 修复Api_port的定义
+import fs from 'fs';
+function shiftStaticFiles(directories: string[]) {
+  return {
+    name: 'shift-static-file',
+    writeBundle() {
+      directories.forEach((dir) => {
+        const targetDir = path.resolve(__dirname, 'dist', dir);
+        if (fs.existsSync(targetDir)) {
+          fs.rmSync(targetDir, { recursive: true, force: true });
+          console.log(`Deleted directory: ${targetDir}`);
+        } else {
+          console.warn(`Directory not found: ${targetDir}`);
+        }
+      });
+    },
+  };
+}
 
 export default ({ mode }: { mode: string }) => {
   const env = loadEnv(mode, process.cwd());
   console.log(env);
+
   return defineConfig({
+    base: './',
     plugins: [
       resolve(),
       commonjs(),
       svgr(),
       react(),
       version(),
-      // tsconfigPaths(),
       dts({
         tsconfigPath: './tsconfig.app.json',
         insertTypesEntry: true,
+        include: ['src/application/**/*.ts'], // 仅包含 application 目录
       }),
       generatePackageJson({
         outputFolder: 'dist',
         baseContents: {
-          name: env.VITE_PUBLISH_NAME,
+          name: env.VITE_PUBLISH_NAME || pkg.name,
           main: 'index.js',
           license: 'MIT',
           // @ts-expect-error 这里是因为样式文件可能没有类型定义
@@ -47,33 +60,28 @@ export default ({ mode }: { mode: string }) => {
           scripts: {
             test: 'yarn link',
             disconnect: 'yarn unlink',
-            publish: 'npm publish --access public',
           },
-          dependencies: {},
           exports: {
             '.': './index.js',
-            './styles.css': './assets/lib_enter.css',
+            './style.css': './assets/style.css',
           },
         },
       }),
       copy({
-        targets: [
-          { src: 'NPMREADME.md', dest: 'dist', rename: 'README.md' }, // 将 README.md 复制到 dist 目录
-        ],
-        hook: 'writeBundle', // 在打包完成后执行
+        targets: [{ src: 'NPMREADME.md', dest: 'dist', rename: 'README.md' }],
+        hook: 'writeBundle',
       }),
+      shiftStaticFiles(['files']),
     ],
     resolve: {
-      alias: [
-        {
-          find: '@', // 别名
-          replacement: path.resolve(__dirname, 'src'), // 别名对应地址
-        },
-      ],
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
     },
     esbuild: {
       charset: 'ascii',
     },
+    // assetsInclude: ['**/*.mjs'], // 确保 Vite 能识别 .mjs 文件为资源
     build: {
       outDir: 'dist',
       lib: {
@@ -83,31 +91,25 @@ export default ({ mode }: { mode: string }) => {
       },
       rollupOptions: {
         external: ['react', 'react-dom'],
+        input: {
+          main: path.resolve(__dirname, 'src/application/lib_enter.ts'),
+        },
         output: {
+          dir: 'dist', // 确保输出在 dist 根目录
           entryFileNames: `index.js`,
           assetFileNames: `assets/[name].[ext]`,
           globals: {
             react: 'React',
-            'react-dom': 'ReactDOM',
+            // 'react-dom': 'ReactDOM',
           },
-          plugins: [
-            terser(), // 代码压缩
-          ],
         },
+        // treeshake: true, // 启用 tree-shaking，减少无用代码
       },
-      cssCodeSplit: true, // 启用 CSS 代码分割
     },
     server: {
+      cors: true,
       host: '0.0.0.0',
       port: 8888,
-      // proxy: {
-      //   "/proxy": {
-      //     // target: "http://10.64.17.78:9001",
-      //     target: `${process.env.VITE_APP_VERSION}/`,
-      //     changeOrigin: true,
-      //     rewrite: (path) => path.replace(/^\/proxy/, ""),
-      //   },
-      // },
     },
   });
 };
