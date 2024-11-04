@@ -1,6 +1,7 @@
 ## 环境使用流程
-  // @ts-expect-error 这里是因为样式文件可能没有类型定义
-开发环境已经内置了代码架构 prompts,需要写一个文件的时候按照：
+
+// @ts-expect-error 这里是因为样式文件可能没有类型定义开发环境已经内置了代码架构 prompts,需要写一个
+文件的时候按照：
 
 ```
   ##需求##: 这里写你的具体需求。
@@ -23,6 +24,9 @@
 
 - npm 镜像下载依赖时： `npm config set registry https://registry.npmmirror.com` 发布包时：
   `npm config set registry https://registry.npmjs.org` 验证当前设置： `npm config get registry`
+
+- git config --global http.proxy http://127.0.0.1:7890
+- git config --global https.proxy https://127.0.0.1:7890
 
 ## 打包流程
 

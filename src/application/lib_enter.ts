@@ -1,3 +1,3 @@
 import "./style.css";
-import MxMweb from "./index";
+import MxMweb from "./Somelib";
 export { MxMweb };
